@@ -2,6 +2,7 @@ import { TextField } from "@mui/material"
 import katex from "katex"
 import { useRef, useEffect, useState } from "react"
 import { AppLink } from "./AppLink"
+import { chainLog } from "./Util"
 
 export function Mean() {
   const formulaRef = useRef<HTMLDivElement>(null)
@@ -32,7 +33,7 @@ export function Mean() {
       const sumString = values.length > 0 ? values.join(' + ') : '0'
       const valuesSum = values.length > 0 ? values.reduce((a, b) => a + b, 0) : 0
       const mean = values.length > 0 ? values.reduce((a, b) => a + b, 0) / values.length : 0;
-      const renderString = `\\frac{${sumString}}{${values.length}} = \\frac{${valuesSum}}{${values.length}} = ${mean}`
+      const renderString = `\\frac{${sumString}}{${values.length}} = \\frac{${valuesSum}}{${values.length}} = ${meanToString(mean)}`
       katex.render(values.length > 0 ? renderString : '', valuesSumRef.current, {
         throwOnError: false,
       })
@@ -45,13 +46,14 @@ export function Mean() {
     <AppLink href="/">Back</AppLink>
     <h1>Mean Calculator</h1>
 
-    <p>The Mean is <BlueBold>{mean.string}</BlueBold> or about <BlueBold>{mean.rounded}</BlueBold></p>
+    <p>The Mean is about <BlueBold>{mean.string}</BlueBold></p>
     <h5>Enter Values</h5>
     <TextField
       size="small"
       variant="outlined"
       multiline
       rows={4}
+      slotProps={{ htmlInput: { style: { resize: 'both' } } }}
       value={valuesInput}
       onChange={(e) => setValuesInput(e.target.value)}
     />
@@ -68,10 +70,17 @@ const BlueBold = ({ children }: { children: React.ReactNode }) => <b style={{ co
 function meanToString(num: number) {
   const MAX_DECIMAL_PLACES = 5
 
+  console.log("Original number:", num)
   const isDecimalTooLong = [num]
-    .map(a => a % 1) // Decimal Portion
     .map(a => a.toString().split('.').at(1) ?? '') // As String
-    .map(a => a.length > MAX_DECIMAL_PLACES)[0] // Check for length
+    .map(chainLog("Decimal Portion:"))
+    .map(a => a.length > MAX_DECIMAL_PLACES + 1)[0] // Check for length
 
-  return num.toLocaleString('en-US', { maximumFractionDigits: MAX_DECIMAL_PLACES }) + (isDecimalTooLong ? '...' : '')
+  const asString = num.toLocaleString('en-US', { maximumFractionDigits: MAX_DECIMAL_PLACES + 1 })
+  
+  if (isDecimalTooLong) {
+    return asString.slice(0, -1) + '...'
+  }
+
+  return asString
 }

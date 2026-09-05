@@ -218,7 +218,7 @@ textarea {
   border-radius: 4px;
   transition: border-color 0.2s;
   width: 100%;
-  max-width: 400px;
+  max-width: calc(var(--doc-width) - 3 * var(--doc-padding));
 }
 
 input:focus,
