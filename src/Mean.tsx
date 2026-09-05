@@ -1,8 +1,6 @@
 import { TextField } from "@mui/material"
 import katex from "katex"
 import { useRef, useEffect, useState } from "react"
-import { AppLink } from "./AppLink"
-import { chainLog } from "./Util"
 
 export function Mean() {
   const formulaRef = useRef<HTMLDivElement>(null)
@@ -43,7 +41,6 @@ export function Mean() {
   
 
   return <>
-    <AppLink href="/">Back</AppLink>
     <h1>Mean Calculator</h1>
 
     <p>The Mean is about <BlueBold>{mean.string}</BlueBold></p>
@@ -73,7 +70,6 @@ function meanToString(num: number) {
   console.log("Original number:", num)
   const isDecimalTooLong = [num]
     .map(a => a.toString().split('.').at(1) ?? '') // As String
-    .map(chainLog("Decimal Portion:"))
     .map(a => a.length > MAX_DECIMAL_PLACES + 1)[0] // Check for length
 
   const asString = num.toLocaleString('en-US', { maximumFractionDigits: MAX_DECIMAL_PLACES + 1 })

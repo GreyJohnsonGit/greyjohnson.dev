@@ -1,8 +1,6 @@
-import { AppLink } from "./AppLink"
-
 export function Landing() {
-  return <>
-    <h1>Calculators</h1>
-    <AppLink href="/tool/mean">Mean Calculator</AppLink>
-  </>
+  return <div>
+    <h1>Welcome!</h1>
+    <p>This is the landing page of the application. Use the navigation menu to access different tools and lessons.</p>
+  </div>
 }

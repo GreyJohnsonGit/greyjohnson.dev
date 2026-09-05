@@ -44,7 +44,7 @@ html {
 body {
   font-family: var(--font-primary);
   color: var(--text-primary);
-  background-color: var(--background);
+  background-color: var(--background) !important; /* Overwrite CSSBaseline */
   min-height: 100vh;
 }
 
@@ -103,23 +103,25 @@ h1 {
 
 h2 {
   font-size: 2rem;
-  margin-top: 2.5rem;
   margin-bottom: 1.25rem;
 }
 
 h3 {
   font-size: 1.5rem;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 h4 {
   font-size: 1.25rem;
-  margin-top: 1.5rem;
+  margin-top: 0.4rem;
 }
 
 p {
   margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+li {
   color: var(--text-primary);
 }
 
@@ -450,6 +452,11 @@ nav a {
   
   button {
     display: none;
+  }
+
+  section {
+    page-break-inside: avoid;
+    break-inside: avoid;
   }
 }
 
