@@ -1,4 +1,4 @@
-import { useReveal } from './AppContext';
+import { KeyWord, Section, Split } from './LessonComponent';
 
 export function ExampleLesson() {
   return (
@@ -140,42 +140,42 @@ export function ExampleLesson() {
             <Split
               leftWeight={2}
               left={<>The number of text messages a student sends in one day:</>}
-              right={<KeyWord align="right" content="quantitative" />}
+              right={<KeyWord minLength={12} align="right" content="quantitative" />}
             />
           </li>
           <li>
             <Split
               leftWeight={2}
               left={<>A student's preferred school lunch:</>}
-              right={<KeyWord align="right" content="categorical" />}
+              right={<KeyWord minLength={12} align="right" content="categorical" />}
             />
           </li>
           <li>
             <Split
               leftWeight={2}
               left={<>The amount of money spent on lunch:</>}
-              right={<KeyWord align="right" content="quantitative" />}
+              right={<KeyWord minLength={12} align="right" content="quantitative" />}
             />
           </li>
           <li>
             <Split
               leftWeight={2}
               left={<>The brand of phone a student uses:</>}
-              right={<KeyWord align="right" content="categorical" />}
+              right={<KeyWord minLength={12} align="right" content="categorical" />}
             />
           </li>
           <li>
             <Split
               leftWeight={2}
               left={<>The time it takes to run one mile:</>}
-              right={<KeyWord align="right" content="quantitative" />}
+              right={<KeyWord minLength={12} align="right" content="quantitative" />}
             />
           </li>
           <li>
             <Split
               leftWeight={2}
               left={<>Whether a student has a part-time job:</>}
-              right={<KeyWord align="right" content="categorical" />}
+              right={<KeyWord minLength={12} align="right" content="categorical" />}
             />
           </li>
         </ol>
@@ -194,67 +194,9 @@ export function ExampleLesson() {
   );
 }
 
-function KeyWord({ content, align }: { content: string; align?: 'left' | 'right' | 'center' }) {
-  const { reveal } = useReveal();
-
-  const style: React.CSSProperties = {
-    ...reveal ? Styles.RevealedWord : Styles.HiddenWord,
-  };
-  
-  if (align) {
-    style.display = 'block';
-    style.textAlign = align;
-  }
-  
-  return (
-    <strong
-      style={style}
-    >
-      {" " + content}
-    </strong>
-  );
-}
-
-function Split({
-  left,
-  right,
-  leftWeight,
-  rightWeight,
-}: {
-  left: React.ReactNode;
-  right: React.ReactNode;
-  leftWeight?: number;
-  rightWeight?: number;
-}) {
-  return (
-    <div style={Styles.Split}>
-      <div style={{ ...Styles.Column, flex: leftWeight ?? 1 }}>{left}</div>
-      <div style={{ ...Styles.Column, flex: rightWeight ?? 1 }}>{right}</div>
-    </div>
-  );
-}
-
-function Section({ children, outline }: { children: React.ReactNode; outline?: boolean }) {
-  const style = {
-    ...outline ? { border: '1px solid var(--border-color)', margin: '-1px', padding: '4px' } : {},
-  }
-  
-  return (
-    <section style={style}>
-      {children}
-    </section>
-  );
-}
-
 const Styles = {
   Lesson: {
     font: '16px Comic Sans MS, Cursive, sans-serif',
-  } satisfies React.CSSProperties,
-
-  Split: {
-    display: 'flex',
-    gap: '1rem',
-    alignItems: 'flex-start',
   } satisfies React.CSSProperties,
 
   Column: {
@@ -269,13 +211,4 @@ const Styles = {
     margin: '1rem 0',
     backgroundColor: 'var(--code-bg)',
   } satisfies React.CSSProperties,
-
-  HiddenWord: {
-    color: 'transparent',
-    textDecoration: 'underline',
-    textDecorationColor: 'var(--text-primary)',
-    textDecorationSkipInk: 'none'
-  } satisfies React.CSSProperties,
-
-  RevealedWord: {} satisfies React.CSSProperties,
 };
