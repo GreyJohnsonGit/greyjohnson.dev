@@ -105,26 +105,12 @@ export function ExampleLesson() {
         </ol>
 
         <div style={Styles.ExampleBox}>
-          <h3>Example: Student Survey</h3>
+          <h2>Important Note</h2>
           <p>
-            Suppose we ask students for their favorite school subject, number of
-            hours they study each week, and class year.
+            A number (ex. 123, 45-2134, 007) is not automatically quantitative. For example, a student
+            identification number (ex. 20023) may contain digits, but it is only a label.
+            If you were to average three student numbers, 20023, 20025, and 20028, the result would be 20025.33... which would not have any meaningful interpretation.
           </p>
-
-          <ul>
-            <li>
-              Favorite school subject is <strong>categorical</strong> because
-              the responses are subject names.
-            </li>
-            <li>
-              Hours studied per week is <strong>quantitative</strong> because
-              the responses are numerical measurements.
-            </li>
-            <li>
-              Class year is <strong>categorical</strong> because freshman,
-              sophomore, junior, and senior are categories.
-            </li>
-          </ul>
         </div>
       </Section>
 
@@ -136,61 +122,54 @@ export function ExampleLesson() {
         </p>
 
         <ol>
-          <li>
-            <Split
-              leftWeight={2}
-              left={<>The number of text messages a student sends in one day:</>}
-              right={<KeyWord minLength={12} align="right" content="quantitative" />}
-            />
-          </li>
-          <li>
-            <Split
-              leftWeight={2}
-              left={<>A student's preferred school lunch:</>}
-              right={<KeyWord minLength={12} align="right" content="categorical" />}
-            />
-          </li>
-          <li>
-            <Split
-              leftWeight={2}
-              left={<>The amount of money spent on lunch:</>}
-              right={<KeyWord minLength={12} align="right" content="quantitative" />}
-            />
-          </li>
-          <li>
-            <Split
-              leftWeight={2}
-              left={<>The brand of phone a student uses:</>}
-              right={<KeyWord minLength={12} align="right" content="categorical" />}
-            />
-          </li>
-          <li>
-            <Split
-              leftWeight={2}
-              left={<>The time it takes to run one mile:</>}
-              right={<KeyWord minLength={12} align="right" content="quantitative" />}
-            />
-          </li>
-          <li>
-            <Split
-              leftWeight={2}
-              left={<>Whether a student has a part-time job:</>}
-              right={<KeyWord minLength={12} align="right" content="categorical" />}
-            />
-          </li>
+          <QuantVsQual 
+            desc="The number of texts a student sends in one day (ex. 15):" 
+            answer="quantitative" />
+          <QuantVsQual 
+            desc="A student's preferred school lunch (ex. pizza):" 
+            answer="categorical" />
+          <QuantVsQual 
+            desc="The amount of money spent on lunch (ex. $7.50):" 
+            answer="quantitative" />
+          <QuantVsQual 
+            desc="The time it takes to run one mile (ex. 8 minutes):" 
+            answer="quantitative" />
+          <QuantVsQual 
+            desc="The brand of phone a student uses (ex. Apple):" 
+            answer="categorical" />
+          <QuantVsQual 
+            desc="Whether a student has a part-time job (ex. yes):" 
+            answer="categorical" />
+          <QuantVsQual 
+            desc="The time it takes to run one mile (ex. 8 minutes):" 
+            answer="quantitative" />
+          <QuantVsQual 
+            desc="The brand of phone a student uses (ex. Android):" 
+            answer="categorical" />
+          <QuantVsQual 
+            desc="Whether a student has a part-time job (ex. yes):" 
+            answer="categorical" />
+          <QuantVsQual 
+            desc="A student's phone number (ex. 123-456-7890):" 
+            answer="categorical" />
+          <QuantVsQual 
+            desc="A student's age (ex. 16):" 
+            answer="quantitative" />
         </ol>
       </Section>
-
-      <Section>
-        <h2>Important Reminder</h2>
-        <p>
-          A number is not automatically quantitative. For example, a student
-          identification number may contain digits, but it is only a label.
-          Since arithmetic on identification numbers is not meaningful, it is a
-          categorical variable.
-        </p>
-      </Section>
     </div>
+  );
+}
+
+function QuantVsQual({ desc, answer }: { desc: string; answer: string }) {
+  return (
+    <li>
+      <Split
+        leftWeight={2}
+        left={<> {desc} </>}
+        right={<KeyWord minLength={12} align="right" content={answer} />}
+      />
+    </li>
   );
 }
 

@@ -20,6 +20,12 @@
   --text-muted: #718096;
   --border-color: #e2e8f0;
   --code-bg: #f1f5f9;
+  --alert-info-bg: #bee3f8;
+  --alert-info-text: #1a365d;
+  --alert-success-bg: #c6f6d5;
+  --alert-success-text: #22543d;
+  --alert-warning-bg: #feebc8;
+  --alert-warning-text: #7c2d12;
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
   --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
@@ -282,7 +288,7 @@ canvas {
   border-radius: 4px;
   display: block;
   margin: 1rem 0;
-  background-color: white;
+  background-color: var(--surface);
 }
 
 /* ===== Tables ===== */
@@ -297,6 +303,7 @@ th, td {
   padding: 0.75rem;
   text-align: left;
   border-bottom: 1px solid var(--border-color);
+  color: var(--text-primary);
 }
 
 th {
@@ -361,21 +368,21 @@ tr:hover {
 }
 
 .alert-info {
-  background-color: #bee3f8;
+  background-color: var(--alert-info-bg);
   border-color: var(--primary-color);
-  color: var(--primary-dark);
+  color: var(--alert-info-text);
 }
 
 .alert-success {
-  background-color: #c6f6d5;
+  background-color: var(--alert-success-bg);
   border-color: var(--accent-color);
-  color: #22543d;
+  color: var(--alert-success-text);
 }
 
 .alert-warning {
-  background-color: #feebc8;
+  background-color: var(--alert-warning-bg);
   border-color: #ed8936;
-  color: #7c2d12;
+  color: var(--alert-warning-text);
 }
 
 /* ===== Navigation ===== */
@@ -416,6 +423,12 @@ nav a {
     --text-muted: #a0aec0;
     --border-color: #4a5568;
     --code-bg: #1a202c;
+    --alert-info-bg: #2c5282;
+    --alert-info-text: #e2e8f0;
+    --alert-success-bg: #276749;
+    --alert-success-text: #e2e8f0;
+    --alert-warning-bg: #744210;
+    --alert-warning-text: #fefcbf;
   }
   
   canvas {
@@ -444,7 +457,26 @@ nav a {
   body {
     background: white;
   }
+
+  table,
+  th,
+  td,
+  .MuiTable-root {
+    border: 1px solid #000 !important;
+  }
   
+  ol {
+    margin-left: 0;
+    padding-left: 2.5rem;
+    list-style-position: outside;
+    list-style-type: decimal;
+  }
+
+  ol > li::marker {
+    font-family: Arial, Helvetica, sans-serif;
+    font-variant-numeric: lining-nums;
+  }
+
   .app-container,
   #root {
     box-shadow: none;
