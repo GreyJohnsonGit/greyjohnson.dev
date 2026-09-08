@@ -409,6 +409,12 @@ nav a {
   padding: 0.5rem 0;
 }
 
+/* ===== Katex Inline Rendering ===== */
+.katex-html {
+  visibility: hidden;
+  display: none;
+}
+
 /* ===== Dark Mode Support (Optional) ===== */
 @media (prefers-color-scheme: dark) {
   :root {
@@ -458,6 +464,23 @@ nav a {
     background: white;
   }
 
+  .lesson-chart,
+  .lesson-bar,
+  .lesson-pie-chart {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .lesson-chart {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .lesson-bar,
+  .lesson-pie-chart {
+    border: 1px solid #000;
+  }
+
   table,
   th,
   td,
@@ -492,8 +515,4 @@ nav a {
     page-break-inside: avoid;
     break-inside: avoid;
   }
-}
-
-.katex-html {
-  visibility: hidden;
 }

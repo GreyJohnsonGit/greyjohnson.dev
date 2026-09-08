@@ -10,7 +10,9 @@ export function AppMenu() {
       <AppLink href="/tool/mean">Mean</AppLink>
       <br />
       Lessons
-      <AppLink href="/notes/example-lesson">Example</AppLink>
+      <AppLink href="/notes/stats-l001-catquant">Stats L001 Data</AppLink>
+      <AppLink href="/notes/stats-l002-catdata">Stats L002 Categorical Data</AppLink>
+      <AppLink href="/notes/alg-l001-realnums">ALG 001 Real Numbers</AppLink>
     </Box>
   );
 }

@@ -1,6 +1,6 @@
-import { KeyWord, Section, Split } from './LessonComponent';
+import { KeyWord, Section, Split } from '../LessonComponent';
 
-export function ExampleLesson() {
+export function Stats_L001_CatQuant() {
   return (
     <div style={Styles.Lesson}>
       <h1>Statistics: Data and Variables</h1>
