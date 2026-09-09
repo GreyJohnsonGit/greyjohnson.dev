@@ -5,6 +5,7 @@ import { Stats_L001_CatQuant } from './lessons/Stats_L001_CatQuant';
 import { RevealProvider } from './RevealContext';
 import { Alg_L001_RealNums } from './lessons/Alg_L001_RealNums';
 import { Stats_L002_CatData } from './lessons/Stats_L002_CatData';
+import { Stats_L003_CatExtra } from './lessons/Stats_L003_CatExtra';
 
 function App() {
   const path = AppPagePath.safeParse(window.location.pathname).data ?? '/';
@@ -23,6 +24,7 @@ function App() {
     ["/notes/stats-l001-catquant", <Stats_L001_CatQuant />],
     ["/notes/alg-l001-realnums", <Alg_L001_RealNums />],
     ["/notes/stats-l002-catdata", <Stats_L002_CatData />],
+    ["/notes/stats-l003-catextra", <Stats_L003_CatExtra />],
   ]);
 
   if (toolMap.has(path)) {
