@@ -37,22 +37,6 @@ export function Stats_L003_CatExtra() {
       </Section>
 
       <Section>
-        <h2>Misleading Graphs</h2>
-        <p>
-          A graph is <KeyWord content="misleading" /> when its design makes a
-          comparison look different from the data. Check the scale, labels,
-          intervals, and whether the display starts at zero.
-        </p>
-        <p>View the following chart reflecting the percent of three countries serviced by trains.</p>
-        <img src={pictogram} alt="Example pictogram" style={Styles.Image} />
-        <p>How many times more people are serviced by trains in China vs. the United States?</p>
-        {reveal ? <p><b>Roughly 2 times as many people.</b></p> : (<><br/><br/></>)}
-        <p>Roughly how many times bigger is the area of the Chinese bar vs the United States bar?</p>
-        {reveal ? <p><b>Roughly 4 times bigger.</b></p> : (<><br/><br/></>)}
-        <p>Why might the above pictogram be misleading?</p>
-        {reveal ? <p><b>The pictogram's bars are not proportional to their percentage. This would make a glance look make you think that China is excessively larger than it truly is.</b></p> : (<><br/><br/></>)}
-      </Section>
-      <Section>
         <h2>Pictograms</h2>
         <p>
           A <KeyWord content="pictogram" /> uses repeated pictures or symbols
@@ -74,6 +58,23 @@ export function Stats_L003_CatExtra() {
         <p style={Styles.ExampleBox}>
           Beware! Pictograms can be misleading if the symbols are not proportional to the data they represent.
         </p>
+      </Section>
+
+      <Section>
+        <h2>Misleading Graphs</h2>
+        <p>
+          A graph is <KeyWord content="misleading" /> when its design makes a
+          comparison look different from the data. Check the scale, labels,
+          intervals, and whether the display starts at zero.
+        </p>
+        <p>View the following chart reflecting the percent of three countries serviced by trains.</p>
+        <img src={pictogram} alt="Example pictogram" style={Styles.Image} />
+        <p>How many times more people are serviced by trains in China vs. the United States?</p>
+        {reveal ? <p><b>Roughly 2 times as many people.</b></p> : (<><br/><br/></>)}
+        <p>Roughly how many times bigger is the area of the Chinese bar vs the United States bar?</p>
+        {reveal ? <p><b>Roughly 4 times bigger.</b></p> : (<><br/><br/></>)}
+        <p>Why might the above pictogram be misleading?</p>
+        {reveal ? <p><b>The pictogram's bars are not proportional to their percentage. This would make a glance look make you think that China is excessively larger than it truly is.</b></p> : (<><br/><br/></>)}
       </Section>
 
       <Section>
