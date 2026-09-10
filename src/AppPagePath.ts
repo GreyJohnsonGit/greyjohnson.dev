@@ -5,6 +5,7 @@ export const AppPagePath = z.enum([
   "/notes/stats-l001-catquant",
   "/notes/stats-l002-catdata",
   "/notes/stats-l003-catextra",
+  "/notes/stats-l004-dotplots",
   "/notes/alg-l001-realnums",
   "/"
 ]);

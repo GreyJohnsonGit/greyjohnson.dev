@@ -13,6 +13,7 @@ export function AppMenu() {
       <AppLink href="/notes/stats-l001-catquant">Stats L001 Data</AppLink>
       <AppLink href="/notes/stats-l002-catdata">Stats L002 Categorical Data</AppLink>
       <AppLink href="/notes/stats-l003-catextra">Stats L003 Extra Categorical</AppLink>
+      <AppLink href="/notes/stats-l004-dotplots">Stats L004 Dot Plots</AppLink>
       <AppLink href="/notes/alg-l001-realnums">ALG 001 Real Numbers</AppLink>
     </Box>
   );
